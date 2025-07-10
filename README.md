@@ -50,10 +50,55 @@ All communication between agents is done via a standard MCP message structure:
 Supported Document Formats
 .pdf, .docx, .pptx, .csv, .txt, .md
 
- Use Cases
+💡 How It Works
+1.User Uploads Documents
+2.IngestionAgent parses and chunks the content
+3.RetrievalAgent embeds chunks and finds relevant context
+4.LLMResponseAgent uses Gemini to generate an answer based on query and context
+5.Streamlit UI displays the interaction
+
+🛠 Technologies Used
+🧠 Google Gemini API
+🔎 FAISS (Facebook AI Similarity Search)
+🧾 SentenceTransformers
+🧰 Streamlit for frontend UI
+
+
+
+Use Cases
 AI-powered Document Assistants
 Enterprise Knowledge Base Q&A
 Legal, Research, or Academic Document Chatbots
+
+## 🧱 System Requirements
+
+- Python 3.8+
+- pip
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+
+git clone https://github.com/Bvhnandan/Agentic-RAG-Chatbot-for-Multi-Format-Document-QA-using-Model-Context-Protocol.git
+cd Agentic-RAG-Chatbot-for-Multi-Format-Document-QA-using-Model-Context-Protocol
+
+Create Virtual Environment
+
+python -m venv venv
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+
+Install requirements
+pip install -r requirements.txt
+
+Set Google Gemini API Key
+In agents/response.py, update the line with your API key:
+
+Set your own api key
+genai.configure(api_key="YOUR_GOOGLE_API_KEY")
+
+Run the Application
+streamlit run chatbot.py
+
 
 👨‍💻 Author
 Venkata Harsha Nandan Billala
